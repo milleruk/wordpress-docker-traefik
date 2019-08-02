@@ -11,14 +11,14 @@ services:
       - ./config/php.conf.ini:/usr/local/etc/php/conf.d/conf.ini
       - ./wp-app:/var/www/html # Full wordpress project
     environment:
-      WORDPRESS_DB_HOST: mysql
+      WORDPRESS_DB_HOST: "${DB_HOST}"
       WORDPRESS_DB_NAME: "${DB_NAME}"
-      WORDPRESS_DB_USER: wordpress
-      WORDPRESS_DB_PASSWORD: "${DB_ROOT_PASSWORD}"
+      WORDPRESS_DB_USER: "${DB_USER}"
+      WORDPRESS_DB_PASSWORD: "${DB_PASSWORD}"
     labels:
-      - "traefik.backend=wordpress"
-      - "traefik.docker.network=srv"
-      - "traefik.frontend.rule=Host:${DOMAIN}"
+      - "traefik.backend=wordpress_${SUBDOMAIN}"
+      - "traefik.docker.network=${TNETWORK}"
+      - "traefik.frontend.rule=Host:${SUBDOMAIN}.${DOMAIN}"
       - "traefik.enable=true"
       - "traefik.port=80"
     networks:
