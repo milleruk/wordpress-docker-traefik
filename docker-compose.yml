@@ -1,13 +1,13 @@
 version: '3'
 
 networks:
-  ${TNETWORK}:
+  millerdev_srv:
      external: true
 
 services:
   wp:
     image: wordpress:latest # https://hub.docker.com/_/wordpress/
-    container_name: wordpress_"${SUBDOMAIN}"
+    container_name: wordpress_${SUBDOMAIN}
     volumes:
       - ./config/php.conf.ini:/usr/local/etc/php/conf.d/conf.ini
       - ./wp-app:/var/www/html # Full wordpress project
