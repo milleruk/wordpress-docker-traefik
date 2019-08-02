@@ -1,4 +1,4 @@
-# WPDC - WordPress Docker Compose
+# Wordpress Docker Deployment - Traefik
 
 Easy WordPress development with Docker and Docker Compose.
 
@@ -22,21 +22,11 @@ Make sure to [add your user to the `docker` group](https://docs.docker.com/insta
 
 ## Configuration
 
-Edit the `.env` file to change the default IP address, MySQL root password and WordPress database name.
+All the ENVIRONENTS are stored in the .env file that is created through ./create.sh
 
 ## Installation
 
-Open a terminal and `cd` to the folder in which `docker-compose.yml` is saved and run:
-
-```
-docker-compose up
-```
-
-This creates two new folders next to your `docker-compose.yml` file.
-
-* `wp-data` – used to store and restore database dumps
-* `wp-app` – the location of your WordPress application
-
+Open a terminal and run create.sh and enter in environment variables
 
 
 For convenience you may add a new entry into your hosts file.
@@ -70,20 +60,6 @@ Use `-v` if you need to remove the database volume which is used to persist the 
 ```
 docker-compose down -v
 ```
-
-### Project from existing source
-
-Copy the `docker-compose.yml` file into a new directory. In the directory you create two folders:
-
-* `wp-data` – here you add the database dump
-* `wp-app` – here you copy your existing WordPress code
-
-You can now use the `up` command:
-
-```
-docker-compose up
-```
-
 
 ### Creating database dumps
 
