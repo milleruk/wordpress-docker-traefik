@@ -1,7 +1,7 @@
 version: '3'
 
 networks:
-  millerdev_srv:
+  ${TNETWORK}:
      external: true
 
 services:
@@ -23,7 +23,7 @@ services:
       - "traefik.enable=true"
       - "traefik.port=80"
     networks:
-      - millerdev_srv
+      - ${TNETWORK}
 
 
 
@@ -35,5 +35,5 @@ services:
     depends_on:
       - wp
     networks:
-      - millerdev_srv
+      - ${TNETWORK}
 
