@@ -43,3 +43,5 @@ printf "\\n\\n"
 
 printf "Setup Complete - Open a browser and go to: \\n\\n"
 printf "https://"$SUBDOMAIN"."$DOMAIN"\\n\\n"
+
+
